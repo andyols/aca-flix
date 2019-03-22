@@ -1,3 +1,6 @@
-export default {
- 
-};
+const state = {
+  searchResults: [],
+  myMovieList: []
+}
+
+export default state
