@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import './App.css'
 import Logo from './Logo.js'
 import TitleList from './components/TitleList'
@@ -6,6 +7,8 @@ import Hero from './components/Hero'
 import SearchBox from './components/SearchBox'
 import Navigation from './components/Navigation'
 import UserProfile from './components/UserProfile'
+
+import { loadMyMovieList } from './actions/index'
 
 class App extends Component {
   render() {
@@ -24,4 +27,13 @@ class App extends Component {
     )
   }
 }
-export default App
+
+const mapStateToProps = state => ({
+  searchResults: state.searchResults,
+  myMovieList: state.myMovieList
+})
+
+export default connect(
+  mapStateToProps,
+  { loadMyMovieList }
+)(App)

@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { loadSearch } from '../actions/index'
 
 class SearchBox extends Component {
+  state = {
+    searchTerm: ''
+  }
+
   render() {
     return (
       <div id="search" className="Search">
@@ -22,4 +28,8 @@ class SearchBox extends Component {
     )
   }
 }
-export default SearchBox
+
+export default connect(
+  null,
+  { loadSearch }
+)(SearchBox)
