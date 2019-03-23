@@ -7,6 +7,10 @@ class SearchBox extends Component {
     searchTerm: ''
   }
 
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value })
+  }
+
   render() {
     return (
       <div id="search" className="Search">
@@ -21,8 +25,10 @@ class SearchBox extends Component {
               this.props.loadSearch(this.state.searchTerm)
             }
           }}
+          onChange={this.handleChange}
           type="search"
           placeholder="Search for a title..."
+          name="searchTerm"
         />
       </div>
     )
