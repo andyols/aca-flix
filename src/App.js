@@ -16,6 +16,7 @@ class App extends Component {
   }
 
   render() {
+    const { myMovieList } = this.props
     return (
       <div>
         <header className="Header">
@@ -26,7 +27,9 @@ class App extends Component {
         </header>
         <Hero />
         <TitleList title="Search Results" movies={this.props.searchResults} />
-        <TitleList title="My Movies" movies={this.props.myMovieList} />
+        {myMovieList && (
+          <TitleList title="My Movies" movies={myMovieList.payload} />
+        )}
       </div>
     )
   }
