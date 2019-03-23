@@ -11,6 +11,10 @@ import UserProfile from './components/UserProfile'
 import { loadMyMovieList } from './actions/index'
 
 class App extends Component {
+  componentDidMount() {
+    this.props.loadMyMovieList()
+  }
+
   render() {
     return (
       <div>
