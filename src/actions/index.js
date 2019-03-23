@@ -1,10 +1,13 @@
 import axios from 'axios'
 import { API_KEY } from '../config/keys'
-import {
-  LOAD_MY_MOVIE_LIST,
-  MY_MOVIE_LIST_LOADED,
-  SEARCH_RESULTS_LOADED
-} from './types'
+import { MY_MOVIE_LIST_LOADED, SEARCH_RESULTS_LOADED } from './types'
+
+export const myMovieListLoaded = movies => {
+  return {
+    type: MY_MOVIE_LIST_LOADED,
+    payload: movies
+  }
+}
 
 export const loadMyMovieList = () => dispatch => {
   axios
@@ -15,9 +18,9 @@ export const loadMyMovieList = () => dispatch => {
     .catch(err => console.log(err))
 }
 
-export const myMovieListLoaded = movies => {
+export const searchLoaded = movies => {
   return {
-    type: MY_MOVIE_LIST_LOADED,
+    type: SEARCH_RESULTS_LOADED,
     payload: movies
   }
 }
@@ -29,13 +32,6 @@ export const loadSearch = searchTerm => dispatch => {
     )
     .then(res => dispatch(searchLoaded(res.data.results)))
     .catch(err => console.log(err))
-}
-
-export const searchLoaded = movies => {
-  return {
-    type: SEARCH_RESULTS_LOADED,
-    payload: movies
-  }
 }
 
 export const saveMyMovie = movie => dispatch => {
