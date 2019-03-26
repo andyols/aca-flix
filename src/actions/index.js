@@ -5,16 +5,12 @@ import { MY_MOVIE_LIST_LOADED, SEARCH_RESULTS_LOADED } from './types'
 export const myMovieListLoaded = movies => {
   return {
     type: MY_MOVIE_LIST_LOADED,
-    payload: movies.results
+    payload: movies
   }
 }
 
 export const loadMyMovieList = () => dispatch => {
-  axios
-    .get(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
-    )
-    .then(res => dispatch(myMovieListLoaded(res.data)))
+  axios.get('/movies').then(res => dispatch(myMovieListLoaded(res.data)))
 }
 
 export const searchLoaded = movies => {
@@ -43,5 +39,7 @@ export const saveMyMovie = movie => dispatch => {
 export const removeMyMovie = id => dispatch => {
   axios
     .delete(`/movies/${id}`)
-    .then(res => dispatch(loadMyMovieList()).catch(err => console.log(err)))
+    .then(res =>
+      dispatch(loadMyMovieList()).catch(err => console.log(err.response.data))
+    )
 }
