@@ -280,7 +280,7 @@ p {
   display: flex;
 }
 .UserProfile .User .image {
-  border-radius: 50%;
+  border-radius: 44px;
   margin-left: 10px;
   overflow: hidden;
   width: 44px;
@@ -290,8 +290,9 @@ p {
   -webkit-transition: border 0.125s ease;
   transition: border 0.125s ease;
 }
-.UserProfile .User .image .avatar {
-  margin-left: 5px;
+.UserProfile .User .image img {
+  width: 100%;
+  display: block;
 }
 .UserProfile .User .name {
   -webkit-box-align: center;
