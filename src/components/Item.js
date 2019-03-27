@@ -2,7 +2,6 @@ import React from 'react'
 import ListToggle from './ListToggle'
 
 function Item(props) {
-  console.log('TCL: Item -> props.movie', props.movie)
   let name = ''
   let backDrop =
     'http://image.tmdb.org/t/p/original' + props.movie.backdrop_path
