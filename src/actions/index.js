@@ -37,9 +37,5 @@ export const saveMyMovie = movie => dispatch => {
 }
 
 export const removeMyMovie = id => dispatch => {
-  axios
-    .delete(`/movies/${id}`)
-    .then(res =>
-      dispatch(loadMyMovieList()).catch(err => console.log(err.response.data))
-    )
+  axios.delete(`/movies/${id}`).then(res => dispatch(loadMyMovieList()))
 }
