@@ -1,8 +1,7 @@
 import { combineReducers } from 'redux'
-import movieReducer from './movieReducer'
-import searchReducer from './searchReducer'
+import { loadMyMovieList, loadSearch } from './Reducers'
 
 export default combineReducers({
-  myMovieList: movieReducer,
-  searchResults: searchReducer
+  myMovieList: loadMyMovieList,
+  searchResults: loadSearch
 })
