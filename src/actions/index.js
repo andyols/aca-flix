@@ -13,10 +13,10 @@ export const loadMyMovieList = () => dispatch => {
   axios.get('/movies').then(res => dispatch(myMovieListLoaded(res.data)))
 }
 
-export const searchLoaded = movies => {
+export const searchLoaded = results => {
   return {
     type: SEARCH_RESULTS_LOADED,
-    payload: movies
+    payload: results
   }
 }
 
